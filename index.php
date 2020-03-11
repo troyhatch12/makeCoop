@@ -1,8 +1,8 @@
 <?php
-$servername="localhost:3308";
+$servername="localhost";
 $username="dev";
 $password="develop";
-$dbname="makecoop";
+$dbname="makeCoop";
 
 //Create Connection and check
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -14,7 +14,7 @@ if ($conn->connect_error){
 //Add person form
 echo( "
 	<html>
-		<form method='post'>
+		<form action='index.php' method='post'>
 			<h3>Name: </h3><input type='text' name='name'>
 			<h3>Phone: </h3><input type='text' name='phone'>
 			<h3>CreditNum: </h3><input type='text' name='cc'>
@@ -25,8 +25,8 @@ echo( "
 		");
 //insert data into customer
 //need to fill with vals from html
-$addQry = "INSERT INTO customer (name, address, phone, creditnum)
-			VALUES ('troy', '69 ayy lmao', '1010101010', '1525354657687980' )";
+$addQry = "INSERT INTO customer (Name, Address, Phone, CreditNum)
+			VALUES ('troy', '69 ayy lmao', '1010101010', '5253546235768798' )";
 if (mysqli_query($conn, $addQry)){
 	echo("New Customer created!");
 } else {
