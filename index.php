@@ -10,7 +10,11 @@ if ($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);
 }
 
-echo("<html>");
+echo("
+	<html>
+	<h1>Welcome To MakeCoop!</h1>
+	<h3>Create Customer</h3>
+");
 
 if (isset($_POST['submit'])) {
 	$name = $_POST['name'];
@@ -18,17 +22,23 @@ if (isset($_POST['submit'])) {
 	$phone = $_POST['phone'];
 	$creditNum = $_POST['cc'];
 
-	//insert data into customer
-	$addQry = "INSERT INTO customer (Name, Address, Phone, CreditNum)
-				VALUES ('$name', '$address', '$phone', '$creditNum');";
-	if (mysqli_query($conn, $addQry)){
-		echo("
-			<h1>New Customer created!</h1>
-			<button href = 'index.php'>Go Back</button>
-		");
+	//make sure that nothing is blank before creating the query
+	if ($name && $address && $phone && $creditNum){
+		//insert data into customer
+		$addQry = "INSERT INTO customer (Name, Address, Phone, CreditNum)
+					VALUES ('$name', '$address', '$phone', '$creditNum');";
+		if (mysqli_query($conn, $addQry)){
+			echo("
+				<p>New Customer created!<p>
+				<button action=>Go Back</button>
+			");
+		} else {
+			echo("There was an error adding customer: " . mysqli_error($conn));
+		}
 	} else {
-		echo("There was an error adding customer: " . mysqli_error($conn));
+		echo "Error: Values cannot be blank";
 	}
+
 } else {
 	//Add person form
 	echo( "
