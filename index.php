@@ -3,6 +3,8 @@ $servername="localhost";
 $username="dev";
 $password="develop";
 $dbname="makeCoop";
+$db = getenv("MAKECOOPDB");
+echo("Database env: $db");
 
 //Create Connection and check
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -17,6 +19,8 @@ echo("
 ");
 
 if (isset($_POST['submit'])) {
+	//we definitely still need to sanitize these data inputs.
+	//We don't want a Little Bobby Tables situation.
 	$name = $_POST['name'];
 	$address = $_POST['address'];
 	$phone = $_POST['phone'];
