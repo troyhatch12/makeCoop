@@ -25,7 +25,6 @@ if (isset($_POST['submit'])) {
 	$address = $_POST['address'];
 	$phone = $_POST['phone'];
 	$creditNum = $_POST['cc'];
-
 	//make sure that nothing is blank before creating the query
 	if ($name && $address && $phone && $creditNum){
 		//insert data into customer
@@ -34,6 +33,7 @@ if (isset($_POST['submit'])) {
 		if (mysqli_query($conn, $addQry)){
 			echo("
 				<p>New Customer created!<p>
+				<p>Name: $name, Address: $address, Phone: $phone</p>
 				<button action=>Go Back</button>
 			");
 		} else {

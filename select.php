@@ -26,16 +26,17 @@ if ($result = $conn->query($selectQry)){
     extract($row);
 
     echo("
-      <form action='' method='post' enctype'multipart/form-data'>
+      <form action='' method='post' enctype='multipart/form-data'>
         <tr>
-          <td><input type='text' value=$MemberId name='memId' hidden readonly></td>
-          <td>$Name</td>
-          <td>$Address</td>
-          <td>$Phone</td>
-          <td>$CreditNum</td>
-          <td><input type='submit' value='Update' formaction='cUpdate.php'></td>
+          <input type='text' value=$MemberId name='memId' hidden readonly>
+          <td><input type='text' value='$Name' name='name' readonly></td>
+          <td><input type='text' value='$Address' name='address' readonly></td>
+          <td><input type='text' value='$Phone' name='phone' readonly></td>
+          <td><input type='text' value='$CreditNum' name='cc' readonly></td>
+          <td><input type='submit' name='update' value='Update' formaction='cUpdate.php'></td>
+          <td><input type='submit' name='delete' value='Delete' formaction='cDelete.php'></td>
         </tr>
-
+      </form>
     ");
   }
 } else {
