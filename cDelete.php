@@ -9,20 +9,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);
 }
-
-
-//Delete person form
-echo( "
-	<html>
-		<form method='post'>
-			<h3> Customer to Delete: </h3><input type='text' name='name'>
-			<input type='submit'>
-		</form>
-	</html>
-		");
+if (isset($_POST['submit'])) {
+	$memId = $_POST[memberId];
+}
+//vals coming from update/delete html page.
 //delete a customer
-//need to take val from html
-$dltQry = "DELETE FROM customer WHERE name = 'neil'";
+$dltQry = "DELETE FROM customer WHERE memberId = '$memId'";
 if (mysqli_query($conn, $dltQry)){
 	echo("Customer info deleted!");
 } else {
