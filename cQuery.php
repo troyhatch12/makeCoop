@@ -1,4 +1,5 @@
 <?php
+require_once('printhtml.php');
 $servername="localhost";
 $username="dev";
 $password="develop";
@@ -9,6 +10,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);
 }
+
+echo"<html>";
+print_nav();
 
 if (isset($_POST['submit'])) {
 	$name = $_POST['name'];
@@ -37,7 +41,6 @@ if (isset($_POST['submit'])) {
 
 } else {
 	echo( "
-		<html>
 			<h1> Search</h1>
 			<form method='post' action='cQuery.php'>
 				<h3>Name</h3>

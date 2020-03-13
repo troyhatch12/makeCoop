@@ -1,4 +1,5 @@
 <?php
+require_once('printhtml.php');
 $servername="localhost";
 $username="dev";
 $password="develop";
@@ -20,6 +21,9 @@ if (isset($_POST['update'])) {
 	$creditNum = $_POST['cc'];
 echo( "
 	<html>
+	");
+print_nav();
+echo("
 		<h1>Update Customer Information</h1>
 		<form method='post'>
 			<input type='text' name='memId' value=$memId hidden readonly>
@@ -45,9 +49,8 @@ if (isset($_POST['submit'])) {
 	$updtQry = 	"UPDATE customer SET name='$name', phone='$phone',
 	creditnum = '$creditNum', address = '$address' WHERE memberId='$memId'";
 	if (mysqli_query($conn, $updtQry)){
-		echo("<h2>Customer info updated!</h2>
-					<button><a href='select.php'>Go Back</a></button>
-					");
+		echo("<h2>Customer info updated!</h2>");
+		print_redirect();
 	} else {
 		echo("There was an error updating the customer: " . mysqli_error($conn));
 	}
