@@ -1,12 +1,9 @@
 <?php
 require_once('printhtml.php');
-$servername="localhost";
-$username="dev";
-$password="develop";
-$dbname="makeCoop";
+$config = require_once('config.php');
 
 //Create Connection and check
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($config['servername'], $config['username'], $config['password'], $config['dbname']);
 if ($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);
 }
