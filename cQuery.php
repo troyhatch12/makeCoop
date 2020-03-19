@@ -1,16 +1,16 @@
 <?php
-$servername="localhost:3308";
-$username="dev";
-$password="develop";
-$dbname="makeCoop";
-$db = getenv("MAKECOOPDB");
-echo("Database env: $db");
+require_once('printhtml.php');
+$config = require_once('config.php');
+
 
 //Create Connection and check
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($config['servername'], $config['username'], $config['password'], $config['dbname']);
 if ($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);
 }
+
+echo"<html>";
+print_nav();
 
 if (isset($_POST['submit'])) {
 	$name = $_POST['name'];
@@ -39,7 +39,6 @@ if (isset($_POST['submit'])) {
 
 } else {
 	echo( "
-		<html>
 			<h1> Search</h1>
 			<form method='post' action='cQuery.php'>
 				<h3>Name</h3>
