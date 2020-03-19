@@ -1,5 +1,5 @@
 <?php
-$servername="localhost";
+$servername="localhost:3308";
 $username="dev";
 $password="develop";
 $dbname="makeCoop";

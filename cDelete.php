@@ -1,8 +1,10 @@
 <?php
-$servername="localhost";
+$servername="localhost:3308";
 $username="dev";
 $password="develop";
 $dbname="makeCoop";
+$db = getenv("MAKECOOPDB");
+echo("Database env: $db");
 
 //Create Connection and check
 $conn = new mysqli($servername, $username, $password, $dbname);
