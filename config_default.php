@@ -3,8 +3,8 @@
 // Then save this file as config.php
   return [
     'servername' => 'localhost',
-    'username' => 'user',
-    'password' => 'pwd',
+    'username' => 'usr',
+    'password' => 'pw',
     'dbname' => 'db'
   ];
 ?>
