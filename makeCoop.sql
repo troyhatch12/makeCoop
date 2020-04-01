@@ -59,6 +59,7 @@ CREATE TABLE "item" (
 
 LOCK TABLES "item" WRITE;
 /*!40000 ALTER TABLE "item" DISABLE KEYS */;
+INSERT INTO "item" VALUES (1,'celery','produce',69.00),(2,'can o beans','grocery',420.00);
 /*!40000 ALTER TABLE "item" ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,4 +118,4 @@ UNLOCK TABLES;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-01 13:13:32
+-- Dump completed on 2020-04-01 13:48:29
