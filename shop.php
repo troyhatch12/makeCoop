@@ -11,10 +11,15 @@ die("connection failed: " . $conn->connect_error);
 echo "<html>";
 print_nav();
 
-if (isset($_POST['receipt'])) {
+if (isset($_POST['receipt']) || isset($_GET['memId'])) {
 
   #create a new receipt for this customer
-  $memId = $_POST['memId'];
+  if (isset($_POST['memId'])){
+      $memId = $_POST['memId'];
+  } else if (isset($_GET['memId'])) {
+    $memId = $_GET['memId'];
+  }
+
   $insertQuery = "INSERT INTO receipt (MemberId)
                   VALUES ('$memId');";
   if ($result = $conn->query($insertQuery)){
@@ -45,6 +50,7 @@ if (isset($_POST['receipt'])) {
       echo("
         <form action='' method='post' enctype='multipart/form-data'>
           <tr>
+            <input type='text' value='$memId' name='memId' hidden readonly>
             <input type='text' value='$recId' name='recId' hidden readonly>
             <input type='text' value='$ItemId' name='itemId' hidden readonly>
             <td><input type='text' value='$Name' name='name' readonly></td>

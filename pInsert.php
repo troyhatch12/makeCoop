@@ -10,19 +10,21 @@ if ($conn->connect_error){
 
 if (isset($_POST['addItem'])) {
 	$itemId = $_POST['itemId'];
-	$receiptId = $_POST['receiptId'];
+	$receiptId = $_POST['recId'];
+	$memId = $_POST['memId'];
 	//make sure that nothing is blank before creating the query
-	if ($ItemId && $receiptId){
+	if ($itemId && $receiptId){
 		//insert data into customer
 		$addQry = "INSERT INTO purchase (ReceiptId, ItemId)
-					VALUES ('$receiptId' , '$itemId);";
+					VALUES ('$receiptId' , '$itemId');";
+
 		if (mysqli_query($conn, $addQry)){
 			echo("
 				<p>New Purchase created!<p>
 				<button onclick='redirect()'>Go Back</button>
 				<script>
 					const redirect = () => {
-						window.location = 'shop.php';
+						window.location = 'shop.php/?memId=$memId';
 					}
 				</script>
 			");
