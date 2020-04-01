@@ -1,12 +1,11 @@
 <?php
-function print_nav(){
-	echo "
-		<nav>
-			<a href='cInsert.php'>Insert</a>
-			<a href='cSelect.php'>Select/Update/Delete</a>
-			<a href='cQuery.php'>Query</a>
-		</nav>
-	"
-}
+require_once('printhtml.php');
+$config = require_once('config.php');
 
+echo "<html>";
+print_nav();
+
+echo "<h1>Welcome to MakeCoop</h1";
+
+echo "</html>"
 ?>
