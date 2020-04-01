@@ -33,7 +33,7 @@ CREATE TABLE "customer" (
 
 LOCK TABLES "customer" WRITE;
 /*!40000 ALTER TABLE "customer" DISABLE KEYS */;
-INSERT INTO "customer" VALUES (6,'test2','road way blvd','48585747',324234243);
+INSERT INTO "customer" VALUES (8,'troy','109301','3993391',3024902),(6,'test2','road way blvd','48585747',324234243),(7,'neil','393939o st','39399393',493839);
 /*!40000 ALTER TABLE "customer" ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,4 +117,4 @@ UNLOCK TABLES;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-01 12:45:34
+-- Dump completed on 2020-04-01 13:13:32
