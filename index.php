@@ -7,6 +7,6 @@ function print_nav(){
 			<a href='cQuery.php'>Query</a>
 		</nav>
 	"
-}
+};
 
 ?>
