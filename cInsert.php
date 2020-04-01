@@ -1,8 +1,6 @@
 <?php
 require_once('printhtml.php');
 $config = require_once('config.php');
-//$db = getenv("MAKECOOPDB");
-//echo("Database env: $db");
 
 //Create Connection and check
 $conn = new mysqli($config['servername'], $config['username'], $config['password'], $config['dbname']);
