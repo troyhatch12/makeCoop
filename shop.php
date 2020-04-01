@@ -2,43 +2,68 @@
 require_once('printhtml.php');
 $config = require_once('config.php');
 
+
+$conn = new mysqli($config['servername'], $config['username'], $config['password'], $config['dbname']);
+if ($conn->connect_error){
+die("connection failed: " . $conn->connect_error);
+}
+
 echo "<html>";
 print_nav();
 
-echo"
-    <table border='1'>
-      <tr>
-        <th>Name</th>
-        <th>Dept</th>
-        <th>Price</th>
-      </tr>
+if (isset($_POST['receipt'])) {
 
-";
-$selectQry = "SELECT ItemId, Name, Dept, Price FROM item;";
-if ($result = $conn->query($selectQry)){
-  while ($row = $result->fetch_assoc()) {
-    extract($row);
+  #create a new receipt for this customer
+  $memId = $_POST['memId'];
+  $insertQuery = "INSERT INTO receipt (MemberId)
+                  VALUES ('$memId');";
+  if ($result = $conn->query($insertQuery)){
+    echo "Receipt Created";
+    $selectRec = "SELECT ReceiptId from receipt Order BY ReceiptId DESC LIMIT 1;";
+    if ($result = $conn->query($selectRec)){
+      $resultArr = $result->fetch_assoc();
+      $recId = $resultArr['ReceiptId'];
+    } else echo "error getting receipt ID";
+  } else echo "receipt not created";
 
-    echo("
-      <form action='' method='post' enctype='multipart/form-data'>
+
+  echo"
+      <table border='1'>
         <tr>
-          <input type='text' value=$itemId name='memId' hidden readonly>
-          <td><input type='text' value='$Name' name='name' readonly></td>
-          <td><input type='text' value='$Dept' name='dept' readonly></td>
-          <td><input type='text' value='$Price' name='price' readonly></td>
-          <td><input type='submit' name='addItem' value='Add Item' formaction='rInsert.php'></td>
-		  <td><input type='submit' name='receipt' value='Add Receipt' formaction=''</td>
+          <th>Name</th>
+          <th>Dept</th>
+          <th>Price</th>
         </tr>
-      </form>
-    ");
+
+  ";
+
+  $selectQry = "SELECT ItemId, Name, Dept, Price FROM item;";
+  if ($result = $conn->query($selectQry)){
+    while ($row = $result->fetch_assoc()) {
+      extract($row);
+
+      echo("
+        <form action='' method='post' enctype='multipart/form-data'>
+          <tr>
+            <input type='text' value='$recId' name='recId' hidden readonly>
+            <input type='text' value='$ItemId' name='itemId' hidden readonly>
+            <td><input type='text' value='$Name' name='name' readonly></td>
+            <td><input type='text' value='$Dept' name='dept' readonly></td>
+            <td><input type='text' value='$Price' name='price' readonly></td>
+            <td><input type='submit' name='addItem' value='Add Item' formaction='pInsert.php'></td>
+          </tr>
+        </form>
+      ");
+    }
+  } else {
+    echo("There was an error retrieving customers: " . mysqli_error($conn));
   }
-} else {
-  echo("There was an error retrieving customers: " . mysqli_error($conn));
-}
 
-echo "
+  echo "
     </table>";
-
+} else {
+  echo "No Customer Selected";
+}
 
 echo "</html>";
 ?>

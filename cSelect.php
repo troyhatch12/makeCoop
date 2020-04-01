@@ -36,7 +36,7 @@ if ($result = $conn->query($selectQry)){
           <td><input type='text' value='$CreditNum' name='cc' readonly></td>
           <td><input type='submit' name='update' value='Update' formaction='cUpdate.php'></td>
           <td><input type='submit' name='delete' value='Delete' formaction='cDelete.php'></td>
-		  <td><input type='submit' name='receipt' value='Add Receipt' formaction='rInsert.php'</td>
+		  <td><input type='submit' name='receipt' value='Add Receipt' formaction='shop.php'</td>
         </tr>
       </form>
     ");
