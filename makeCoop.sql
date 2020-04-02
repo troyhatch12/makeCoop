@@ -33,7 +33,7 @@ CREATE TABLE "customer" (
 
 LOCK TABLES "customer" WRITE;
 /*!40000 ALTER TABLE "customer" DISABLE KEYS */;
-INSERT INTO "customer" VALUES (8,'troy','109301','3993391',3024902),(6,'test2','road way blvd','48585747',324234243),(7,'neil','393939o st','39399393',493839);
+INSERT INTO "customer" VALUES (8,'troy','109301','3993391',3024902),(6,'test2','road way blvd','48585747',324234243),(7,'neil','393939o st','39399393',493839),(9,'Barry','orange juice blvd','0103099491',2147483647),(10,'Shoja','emperor palp way','9119119111',2147483647);
 /*!40000 ALTER TABLE "customer" ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE "item" (
 
 LOCK TABLES "item" WRITE;
 /*!40000 ALTER TABLE "item" DISABLE KEYS */;
-INSERT INTO "item" VALUES (1,'celery','produce',69.00),(2,'can o beans','grocery',420.00);
+INSERT INTO "item" VALUES (1,'celery','produce',69.00),(2,'can o beans','grocery',420.00),(3,'steak','meat',393.02),(4,'ham','meat',4.32),(5,'bagels','bakery',59.32),(6,'bread','bakery',24.32),(7,'oatmeal','grocery',202.42),(8,'onion','produce',3.10),(9,'apple','produce',3030.10),(10,'ground beef','meat ',3.40),(11,'salsa','grocery',30.43),(12,'windex','housewares',34.11),(13,'toilet brush','housewares',95.32);
 /*!40000 ALTER TABLE "item" ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,6 +73,7 @@ DROP TABLE IF EXISTS "purchase";
 CREATE TABLE "purchase" (
   "ReceiptId" int(6) NOT NULL,
   "ItemId" int(4) NOT NULL,
+  "Quantity" smallint(6) NOT NULL,
   PRIMARY KEY ("ReceiptId","ItemId"),
   KEY "ItemId" ("ItemId")
 );
@@ -96,8 +97,8 @@ DROP TABLE IF EXISTS "receipt";
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE "receipt" (
   "ReceiptId" int(6) NOT NULL AUTO_INCREMENT,
-  "Total" decimal(6,2) DEFAULT NULL,
   "MemberId" smallint(3) NOT NULL,
+  "Date" datetime NOT NULL,
   PRIMARY KEY ("ReceiptId"),
   KEY "MemberId" ("MemberId")
 );
@@ -118,4 +119,4 @@ UNLOCK TABLES;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-01 13:48:29
+-- Dump completed on 2020-04-02 13:59:19
