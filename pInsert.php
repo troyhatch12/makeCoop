@@ -24,7 +24,7 @@ if (isset($_POST['addItem'])) {
 				<button onclick='redirect()'>Go Back</button>
 				<script>
 					const redirect = () => {
-						window.location = 'shop.php/?memId=$memId';
+						window.location = 'shop.php?memId=$memId&recId=$receiptId';
 					}
 				</script>
 			");

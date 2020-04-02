@@ -20,16 +20,21 @@ if (isset($_POST['receipt']) || isset($_GET['memId'])) {
     $memId = $_GET['memId'];
   }
 
-  $insertQuery = "INSERT INTO receipt (MemberId)
-                  VALUES ('$memId');";
-  if ($result = $conn->query($insertQuery)){
-    echo "Receipt Created";
-    $selectRec = "SELECT ReceiptId from receipt Order BY ReceiptId DESC LIMIT 1;";
-    if ($result = $conn->query($selectRec)){
-      $resultArr = $result->fetch_assoc();
-      $recId = $resultArr['ReceiptId'];
-    } else echo "error getting receipt ID";
-  } else echo "receipt not created";
+if (isset($_GET['recId'])){
+  $recId = $_GET['recId'];
+} else {
+    $insertQuery = "INSERT INTO receipt (MemberId)
+                    VALUES ('$memId');";
+    if ($result = $conn->query($insertQuery)){
+      echo "Receipt Created";
+      $selectRec = "SELECT ReceiptId from receipt Order BY ReceiptId DESC LIMIT 1;";
+      if ($result = $conn->query($selectRec)){
+        $resultArr = $result->fetch_assoc();
+        $recId = $resultArr['ReceiptId'];
+      } else echo "error getting receipt ID";
+    } else echo "receipt not created";
+}
+
 
 
   echo"
