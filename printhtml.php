@@ -9,6 +9,14 @@ function print_nav(){
 		</nav>
 	";
 }
+function printhead(){
+	echo (
+	"<html>
+		<head>
+			<link rel='stylesheet' type='text/css' href='style/style.css'></link>
+		</head>
+	");
+}
 function print_redirect(){
 	echo"
 	<h3>Redirecting In <span id='countdown'>4</span></h3>

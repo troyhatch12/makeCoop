@@ -7,9 +7,7 @@ if ($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);
 }
 
-echo "
-  <html>
-  ";
+printhead();
 print_nav();
 echo"
     <table border='1'>
@@ -18,6 +16,7 @@ echo"
         <th>Address</th>
         <th>Phone</th>
         <th>Credit Card</th>
+				<th>Actions</th>
       </tr>
 
 ";
@@ -34,9 +33,10 @@ if ($result = $conn->query($selectQry)){
           <td><input type='text' value='$Address' name='address' readonly></td>
           <td><input type='text' value='$Phone' name='phone' readonly></td>
           <td><input type='text' value='$CreditNum' name='cc' readonly></td>
-          <td><input type='submit' name='update' value='Update' formaction='cUpdate.php'></td>
-          <td><input type='submit' name='delete' value='Delete' formaction='cDelete.php'></td>
-		  <td><input type='submit' name='receipt' value='Add Receipt' formaction='shop.php'</td>
+          <td><input type='submit' name='update' value='Update' formaction='cUpdate.php'>
+          	<input type='submit' name='delete' value='Delete' formaction='cDelete.php'>
+		 				<input type='submit' name='receipt' value='Add Receipt' formaction='shop.php'
+					</td>
         </tr>
       </form>
     ");
