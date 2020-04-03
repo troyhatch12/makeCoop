@@ -5,9 +5,9 @@ function print_nav(){
 		<nav>
 			<ul>
 				<li><a href='home.php'>MakeCoop</a></li>
-				<li><a href='cInsert.php'>Insert</a></li>
-				<li><a href='cSelect.php'>Select/Update/Delete</a></li>
-				<li><a href='cQuery.php'>Query</a></li>
+				<li><a href='cSelect.php'>Customers</a></li>
+				<li><a href='iSelect.php'>Items</a></li>
+				<li><a href='cQuery.php'>Search Customers</a></li>
 			</ul>
 		</nav>
 	";

@@ -14,7 +14,7 @@ echo "
         <h3>Know the member ID?</h3>
         <p>Generate coupons now!</p>
         <form method='post' action='coupon.php'>
-          <input type='text' name='memId' placeholder='Member Id'>
+          <input type='text' name='memId' placeholder='Member Id' required>
       </div>
         <input type='submit' name='submit' value='Generate' class='button-big'>
         </form>
