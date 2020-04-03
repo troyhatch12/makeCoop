@@ -8,23 +8,28 @@ if ($conn->connect_error){
 die("connection failed: " . $conn->connect_error);
 }
 
-echo "<html>";
+print_head();
 print_nav();
+echo("<div class='container'>");
+
 
 if (isset($_POST['receipt']) || isset($_GET['memId'])) {
+//if we just created a receipt or if we just returned from adding an item
+//and now have a memberId in the URL...
 
-  #create a new receipt for this customer
+  //get the member ID
   if (isset($_POST['memId'])){
       $memId = $_POST['memId'];
   } else if (isset($_GET['memId'])) {
     $memId = $_GET['memId'];
   }
 
+//if we already created a receipt, get the ID, if not create one and get its id
 if (isset($_GET['recId'])){
   $recId = $_GET['recId'];
 } else {
-    $insertQuery = "INSERT INTO receipt (MemberId)
-                    VALUES ('$memId');";
+    $insertQuery = "INSERT INTO receipt (MemberId, Date)
+                    VALUES ('$memId', NOW());";
     if ($result = $conn->query($insertQuery)){
       echo "Receipt Created";
       $selectRec = "SELECT ReceiptId from receipt Order BY ReceiptId DESC LIMIT 1;";
@@ -43,6 +48,7 @@ if (isset($_GET['recId'])){
           <th>Name</th>
           <th>Dept</th>
           <th>Price</th>
+          <th>Action</th>
         </tr>
 
   ";
@@ -76,5 +82,6 @@ if (isset($_GET['recId'])){
   echo "No Customer Selected";
 }
 
-echo "</html>";
+echo "</div>
+    </html>";
 ?>
