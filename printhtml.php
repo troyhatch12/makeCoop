@@ -3,13 +3,16 @@
 function print_nav(){
 	echo "
 		<nav>
-			<a href='cInsert.php'>Insert</a>
-			<a href='cSelect.php'>Select/Update/Delete</a>
-			<a href='cQuery.php'>Query</a>
+			<ul>
+				<li><a href='home.php'>MakeCoop</a></li>
+				<li><a href='cInsert.php'>Insert</a></li>
+				<li><a href='cSelect.php'>Select/Update/Delete</a></li>
+				<li><a href='cQuery.php'>Query</a></li>
+			</ul>
 		</nav>
 	";
 }
-function printhead(){
+function print_head(){
 	echo (
 	"<html>
 		<head>

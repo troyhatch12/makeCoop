@@ -7,10 +7,10 @@ if ($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);
 }
 
-printhead();
+print_head();
 print_nav();
 echo"
-    <table border='1'>
+    <table>
       <tr>
         <th>Name</th>
         <th>Address</th>

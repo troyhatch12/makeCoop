@@ -9,7 +9,7 @@ if ($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);
 }
 
-echo"<html>";
+print_head();
 print_nav();
 
 if (isset($_POST['submit'])) {
@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 
 } else {
 	echo( "
-			<h1> Search</h1>
+			<h1>Search Customers</h1>
 			<form method='post' action='cQuery.php'>
 				<h3>Name</h3>
 				<input type='text' name='name'>

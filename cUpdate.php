@@ -15,20 +15,27 @@ if (isset($_POST['update'])) {
 	$address = $_POST['address'];
 	$phone = $_POST['phone'];
 	$creditNum = $_POST['cc'];
-echo( "
-	<html>
-	");
+print_head();
 print_nav();
 echo("
-		<h1>Update Customer Information</h1>
+	<h1>Update Customer Information</h1>
+	<table>
 		<form method='post'>
-			<input type='text' name='memId' value=$memId hidden readonly>
-			<h3>Name: </h3><input type='text' name='name' value='$name'>
-			<h3>Phone: </h3><input type='text' name='phone' value='$phone'>
-			<h3>CreditNum: </h3><input type='text' name='cc' value='$creditNum'>
-			<h3>Address: </h3><input type='text'name='address' value='$address'>
-			<input type='submit' name='submit'>
+			<th>Name</th>
+			<th>Phone</th>
+			<th>CreditNum</th>
+			<th>Address</th>
+			<th></th>
+			<tr>
+				<input type='text' name='memId' value=$memId hidden readonly>
+				<td><input type='text' name='name' value='$name'></td>
+				<td><input type='text' name='phone' value='$phone'></td>
+				<td><input type='text' name='cc' value='$creditNum'></td>
+				<td><input type='text'name='address' value='$address'></td>
+				<td><input type='submit' name='submit'></td>
+			</tr>
 		</form>
+	</table>
 	</html>
 		");
 }

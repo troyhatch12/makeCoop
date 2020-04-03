@@ -8,9 +8,7 @@ if ($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);
 }
 
-echo("
-	<html>
-	");
+print_head();
 print_nav();
 echo("
 	<h1>Welcome To MakeCoop!</h1>
@@ -51,14 +49,25 @@ if (isset($_POST['submit'])) {
 } else {
 	//Add person form
 	echo( "
-			<form action='cInsert.php' method='post'>
-				<h3>Name: </h3><input type='text' name='name'>
-				<h3>Phone: </h3><input type='text' name='phone'>
-				<h3>CreditNum: </h3><input type='text' name='cc'>
-				<h3>Address: </h3><input type='text'name='address'>
-				<input type='submit' name='submit'>
-			</form>
-		</html>
+	<h1>Insert Customer Information</h1>
+	<table>
+		<form action='cInsert.php' method='post'>
+			<th>Name</th>
+			<th>Phone</th>
+			<th>CreditNum</th>
+			<th>Address</th>
+			<th></th>
+			<tr>
+				<td><input type='text' name='name'></td>
+				<td><input type='text' name='phone'></td>
+				<td><input type='text' name='cc'></td>
+				<td><input type='text'name='address'></td>
+				<td><input type='submit' name='submit'></td>
+			</tr>
+		</form>
+	</table>
+	</html>
+
 			");
 
 }
