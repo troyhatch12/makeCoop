@@ -49,6 +49,9 @@ if ($result = $conn->query($selectQry)){
 
 echo ("
     	</table>
+			<a href='cInsert.php'>
+        <button class='button-big'>Add Customer</button>
+      </a>
 		</div>");
 
 

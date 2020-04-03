@@ -46,6 +46,9 @@ if ($result = $conn->query($selectQry)){
 
 echo ("
     	</table>
+			<a href='iInsert.php'>
+        <button class='button-big'>Add Item</button>
+      </a>
 		</div>");
 
 

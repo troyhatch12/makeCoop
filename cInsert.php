@@ -32,13 +32,8 @@ if (isset($_POST['submit'])) {
 			echo("
 				<p>New Customer created!<p>
 				<p>Name: $name, Address: $address, Phone: $phone</p>
-				<button onclick='redirect()'>Go Back</button>
-				<script>
-					const redirect = () => {
-						window.location = 'cInsert.php';
-					}
-				</script>
 			");
+			print_redirect('cSelect.php');
 			$_POST['submit'] = '';
 		} else {
 			echo("There was an error adding customer: " . mysqli_error($conn));

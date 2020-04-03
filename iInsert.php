@@ -31,13 +31,8 @@ if (isset($_POST['submit'])) {
 			echo("
 				<p>New Item created!<p>
 				<p>Name: $name, Department: $dept, Price: $price</p>
-				<button onclick='redirect()'>Go Back</button>
-				<script>
-					const redirect = () => {
-						window.location = 'iInsert.php';
-					}
-				</script>
 			");
+			print_redirect('iSelect.php');
 			$_POST['submit'] = '';
 		} else {
 			echo("There was an error adding item: " . mysqli_error($conn));
