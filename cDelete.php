@@ -15,7 +15,7 @@ if (isset($_POST['delete'])) {
 $dltQry = "DELETE FROM customer WHERE memberId = '$memId'";
 if (mysqli_query($conn, $dltQry)){
 	echo("<h2>Customer info deleted!</h2>");
-	print_redirect();
+	print_redirect('cSelect.php');
 } else {
 	echo("There was an error deleting the customer: " . mysqli_error($conn));
 }

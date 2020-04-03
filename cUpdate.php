@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
 	creditnum = '$creditNum', address = '$address' WHERE memberId='$memId'";
 	if (mysqli_query($conn, $updtQry)){
 		echo("<h2>Customer info updated!</h2>");
-		print_redirect();
+		print_redirect('cSelect.php');
 	} else {
 		echo("There was an error updating the customer: " . mysqli_error($conn));
 	}

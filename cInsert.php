@@ -11,6 +11,7 @@ if ($conn->connect_error){
 print_head();
 print_nav();
 echo("
+	<div class='container'>
 	<h1>Welcome To MakeCoop!</h1>
 	<h3>Create Customer</h3>
 ");
@@ -66,12 +67,11 @@ if (isset($_POST['submit'])) {
 			</tr>
 		</form>
 	</table>
-	</html>
-
 			");
 
 }
 
-echo "</html>";
+echo "</div>
+		</html>";
 mysqli_close($conn);
 ?>
