@@ -18,7 +18,7 @@ print_head();
 print_nav();
 echo("
 	<div class='container'>
-	<h1>Update Customer Information</h1>
+	<h1>Update Item Information</h1>
 	<table>
 		<form method='post'>
 			<th>Item ID</th>
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 		echo("<h2>Item info updated!</h2>");
 		print_redirect('iSelect.php');
 	} else {
-		echo("There was an error updating the customer: " . mysqli_error($conn));
+		echo("There was an error updating the item: " . mysqli_error($conn));
 	}
 }
 

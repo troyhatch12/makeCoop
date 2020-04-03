@@ -18,6 +18,7 @@ if (isset($_POST['update'])) {
 print_head();
 print_nav();
 echo("
+	<div class='container'>
 	<h1>Update Customer Information</h1>
 	<table>
 		<form method='post'>
@@ -36,7 +37,6 @@ echo("
 			</tr>
 		</form>
 	</table>
-	</html>
 		");
 }
 //get vals from above html
@@ -58,5 +58,7 @@ if (isset($_POST['submit'])) {
 		echo("There was an error updating the customer: " . mysqli_error($conn));
 	}
 }
+
+echo("</div></html>");
 mysqli_close($conn);
 ?>

@@ -14,6 +14,7 @@ echo"
 		<h1>Customers</h1>
 	    <table>
 	      <tr>
+					<th>Member Id</th>
 	        <th>Name</th>
 	        <th>Address</th>
 	        <th>Phone</th>
@@ -30,7 +31,7 @@ if ($result = $conn->query($selectQry)){
     echo("
       <form action='' method='post' enctype='multipart/form-data'>
         <tr>
-          <input type='text' value=$MemberId name='memId' hidden readonly>
+          <td><input type='text' value=$MemberId name='memId' readonly></td>
           <td><input type='text' value='$Name' name='name' readonly></td>
           <td><input type='text' value='$Address' name='address' readonly></td>
           <td><input type='text' value='$Phone' name='phone' readonly></td>
