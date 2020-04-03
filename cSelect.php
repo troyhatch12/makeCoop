@@ -10,14 +10,16 @@ if ($conn->connect_error){
 print_head();
 print_nav();
 echo"
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Phone</th>
-        <th>Credit Card</th>
-				<th>Actions</th>
-      </tr>
+	<div class='container'>
+		<h1>Customers</h1>
+	    <table>
+	      <tr>
+	        <th>Name</th>
+	        <th>Address</th>
+	        <th>Phone</th>
+	        <th>Credit Card</th>
+					<th>Actions</th>
+	      </tr>
 
 ";
 $selectQry = "SELECT MemberId, Name, Address, Phone, CreditNum FROM customer;";
@@ -45,8 +47,9 @@ if ($result = $conn->query($selectQry)){
   echo("There was an error retrieving customers: " . mysqli_error($conn));
 }
 
-echo "
-    </table>";
+echo ("
+    	</table>
+		</div>");
 
 
 echo "</html>";

@@ -12,7 +12,19 @@ if ($conn->connect_error){
 print_head();
 print_nav();
 
+echo("
+	<div class='container'>");
+
 if (isset($_POST['submit'])) {
+	echo("
+		<table>
+			<tr>
+				<th>Member Id</th>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Phone</th>
+				<th>Credit Card</th>
+			</tr>");
 	$name = $_POST['name'];
 	$selectQry = 	"SELECT * FROM customer WHERE
 	Name = '$name'";
@@ -23,7 +35,7 @@ if (isset($_POST['submit'])) {
 	    echo("
 	      <form action='' method='post' enctype='multipart/form-data'>
 	        <tr>
-	          <input type='text' value=$MemberId name='memId' hidden readonly>
+	          <td><input type='text' value=$MemberId name='memId' readonly></td>
 	          <td><input type='text' value='$Name' name='name' readonly></td>
 	          <td><input type='text' value='$Address' name='address' readonly></td>
 	          <td><input type='text' value='$Phone' name='phone' readonly></td>
@@ -32,7 +44,9 @@ if (isset($_POST['submit'])) {
 	      </form>
 	    ");
 	  }
-		echo "<button><a href=cQuery.php>Go Back</a></button>";
+		echo "
+			</table>
+			<button><a href=cQuery.php>Go Back</a></button>";
 	} else {
 	  echo("There was an error retrieving customers: " . mysqli_error($conn));
 	}
@@ -48,6 +62,7 @@ if (isset($_POST['submit'])) {
 		</html>
 			");
 }
+echo("</div>");
 
 //Query person form
 //not sure what a form would look like

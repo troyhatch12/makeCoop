@@ -40,14 +40,6 @@ table td, table th {
   padding: 8px;
 }
 
-table td:last-of-type, table th:first-of-type {
-  border-left: 0px;
-}
-
-table td:last-of-type, table th:last-of-type {
-  border-right: 0px;
-}
-
 table tr:nth-child(even){background-color: #f2f2f2;}
 
 table tr:hover {background-color: #ddd;}
@@ -79,4 +71,18 @@ table th {
   margin:0;
   padding:.5%;
   float:left;
+  text-align:center;
+}
+.button-big {
+  display: inline-block;
+  margin: 0 auto;
+  background-color:#057390;
+  color:white;
+  text-decoration: none;
+  text-align:center;
+  padding:1em;
+  font-size: 1em;
+}
+.divider {
+  height:7em;
 }

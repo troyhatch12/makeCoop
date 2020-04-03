@@ -20,7 +20,7 @@ function print_head(){
 		</head>
 	");
 }
-function print_redirect(){
+function print_redirect($location){
 	echo"
 	<h3>Redirecting In <span id='countdown'>4</span></h3>
 	<script type='text/javascript'>
@@ -32,7 +32,7 @@ function print_redirect(){
 			seconds = seconds - 1;
 			if (seconds < 1) {
 					// Chnage your redirection link here
-					window.location = 'cSelect.php';
+					window.location = '$location';
 			} else {
 					// Update remaining seconds
 					document.getElementById('countdown').innerHTML = seconds;
