@@ -55,4 +55,5 @@ if (isset($_POST['memId'])) {
 } else echo("Error: No Member ID Specified");
 
 echo("</div>");
+mysqli_close($conn);
 ?>

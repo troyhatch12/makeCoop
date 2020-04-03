@@ -84,4 +84,5 @@ if (isset($_GET['recId'])){
 
 echo "</div>
     </html>";
+mysqli_close($conn);
 ?>
